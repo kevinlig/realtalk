@@ -56,7 +56,7 @@
 				  	<form>
 				  		<div class="row collapse">
 				  			<div class="large-4 columns">
-				      			<label class="inline" for="#topic">Topic</label>
+				      			<label class="inline" for="topic">Topic</label>
 				    		</div>
 			    			<div class="large-8 columns">
 				      			<input type="text" id="topic" placeholder="Cardiff">
