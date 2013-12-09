@@ -20,7 +20,7 @@ function curlRequest($url) {
 $input = json_decode(file_get_contents('php://input'),true);
 // validate the contents
 if ($input == NULL || !array_key_exists("topic",$input) || !array_key_exists("paragraphs",$input)) {
-	echo json_encode(array("status"=>"invalid"));
+	header('HTTP/1.1 400 Bad Request');
 	return;
 }
 
@@ -30,7 +30,7 @@ $paragraphs = $input['paragraphs'];
 // do some more validation
 if ($topic == "" || !is_int($paragraphs) || $paragraphs < 1 || $paragraphs > 6) {
 	// still invalid
-	echo json_encode(array("status"=>"invalid"));
+	header('HTTP/1.1 400 Bad Request');
 	return;
 }
 
