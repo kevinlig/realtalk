@@ -78,7 +78,7 @@
 						  	</div>
 						<div class="row">
 							<div class="large-4 columns">
-					  			<button type="submit" class="radius button">Generate</button>
+					  			<button type="submit" class="radius button" id="searchButton">Generate</button>
 					  		</div>
 					  		<div class="large-8 columns">
 					  			<div class="loading-spinner"></div>

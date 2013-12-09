@@ -44,6 +44,10 @@ var app = app || {};
 			};
 			var spinner = new Spinner(opts).spin($(".loading-spinner")[0]);
 
+			// disable search button
+			$("#searchButton").addClass("disabled");
+			$("#searchButton").attr("disabled","disabled");
+
 			// okay now let's update the model
 			this.model.set('topic',topic);
 			this.model.set('paragraphs',paragraphs);
@@ -54,6 +58,10 @@ var app = app || {};
 				success: function(model, response) {
 					// clear spinner
 					$(".loading-spinner").html("");
+
+					// re-enable search button
+					$("#searchButton").removeClass("disabled");
+					$("#searchButton").removeAttr("disabled");
 
 					// check search results
 					if (model.get("results").length == 0) {
@@ -69,6 +77,10 @@ var app = app || {};
 				error: function(model, response) {
 					// clear spinner
 					$(".loading-spinner").html("");
+
+					// re-enable search button
+					$("#searchButton").removeClass("disabled");
+					$("#searchButton").removeAttr("disabled");
 
 					// show error message
 					$("#genericErrorModal").foundation('reveal','open');
