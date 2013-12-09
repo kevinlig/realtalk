@@ -56,7 +56,7 @@
 					      			<label class="inline" for="topic">Topic</label>
 					    		</div>
 				    			<div class="large-8 columns">
-					      			<input type="text" id="topic" placeholder="Cardiff" required pattern="alpha_numeric">
+					      			<input type="text" id="topic" placeholder="" required pattern="alpha_numeric">
 					      			<small class="error">A topic is required.</small>
 					    		</div>
 				  			</div>
