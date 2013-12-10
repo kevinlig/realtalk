@@ -8,4 +8,5 @@ var app = app || {};
 		},
 		urlRoot: '/app/search.php'
 	});
+
 })(jQuery);

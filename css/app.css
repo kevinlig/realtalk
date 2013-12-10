@@ -2,6 +2,6 @@
 	font-size: 0.75em;
 }
 
-.loading-spinner {
+.loading-spinner, wiki-spinner {
 	height:50px;
 }

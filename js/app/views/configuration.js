@@ -101,7 +101,11 @@ var app = app || {};
 			}
 
 			// okay display the view
-			var resultsView = new app.ResultsView({collection: resultCollection});
+			if (typeof app.resultsView != "undefined") {
+				// this view already exists in memory so let's purge it and recreate it
+				app.resultsModalView.reset();
+			}
+			app.resultsModalView = new app.ResultsView({collection: resultCollection});
 
 			// cool we don't need the search results any more in this model
 			this.model.unset('results');

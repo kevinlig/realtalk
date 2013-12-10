@@ -43,7 +43,9 @@
 			<div class="row">
 		  		<div class="large-7 columns">
 			   		<h3 class="title">Filler Text</h3>
-			   		<p>No content yet.</p>
+			   		<div id="fillerOutput">
+			   			<p>No content yet.</p>
+			   		</div>
 			    </div>
 			    <!-- sidebar -->
 			    <div class="large-5 columns">
@@ -122,19 +124,53 @@
 		<a href="#" onclick="$('#genericErrorModal').foundation('reveal','close'); return false;" class="button radius">Close</a>
 	</div>
 
+	<div id="stubModal" class="reveal-modal small" data-reveal>
+		<h3>This article is a stub.</h3>
+		<p class="lead">There is not enough content to generate filler text.</p>
+		<p>Try a different topic or article.</p>
+		<a class="close-reveal-modal">&#215;</a>
+		<a href="#" onclick="$('#stubErrorModal').foundation('reveal','close'); return false;" class="button radius">Close</a>
+	</div>
+
+	<div id="tooShortModal" class="reveal-modal small" data-reveal>
+		<h3>This article is too short.</h3>
+		<p class="lead">There is may not be enough content to generate sufficient filler text.</p>
+		<p>Try a different topic or article.</p>
+		<a class="close-reveal-modal">&#215;</a>
+		<a href="#" onclick="$('#tooShortModal').foundation('reveal','close'); return false;" class="button radius">Close</a>
+	</div>
+
+
 	<div id="searchResultsModal" class="reveal-modal large" data-reveal>
 		<h3>Search Results</h3>
-		<p class="lead">Which topic are you looking for?</p>
-		<ul id="searchResultsView">
+		<div class="visibleResults">
+			<p class="lead">Which topic are you looking for?</p>
+			<ul id="searchResultsView">
 
-		</ul>
+			</ul>
+		</div>
+		<div class="loadingPage hide">
+			<p class="lead">Preparing content...</p>
+			<div class="wiki-spinner"></div>
+		</div>
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
+
+	<div id="disambigModal" class="reveal-modal large" data-reveal>
+		<h3>This is a disambiguation page.</h3>
+		<p class="lead">Are you looking for one of these topics?</p>
+		<ul id="disambigList"></ul>
 		<a class="close-reveal-modal">&#215;</a>
 	</div>
 
 
+
+	<!-- text processing area -->
+	<div id="scratchArea" class="hide"></div>
+
 	<!-- templates -->
 	<script type="text/template" id="resultItemTemplate">
-		<li><%= title %></li>
+		<li><a href="#" class="resultsLink" data-wiki-title="<%= title %>"><%= title %></li></a>
 	</script>
 
 	<script src="js/vendor/jquery.js"></script>
@@ -148,6 +184,7 @@
 	</script>
 
 	<script src="js/app/models/results.js"></script>
+	<script src="js/app/models/wikipage.js"></script>
   	<script src="js/app/models/configuration.js"></script>
   	<script src="js/app/collections/results.js"></script>
   	<script src="js/app/views/results.js"></script>
