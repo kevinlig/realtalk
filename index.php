@@ -129,7 +129,7 @@
 		<p class="lead">There is not enough content to generate filler text.</p>
 		<p>Try a different topic or article.</p>
 		<a class="close-reveal-modal">&#215;</a>
-		<a href="#" onclick="$('#stubErrorModal').foundation('reveal','close'); return false;" class="button radius">Close</a>
+		<a href="#" onclick="$('#stubModal').foundation('reveal','close'); return false;" class="button radius">Close</a>
 	</div>
 
 	<div id="tooShortModal" class="reveal-modal small" data-reveal>
